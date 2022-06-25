@@ -1,0 +1,16 @@
+.container {
+    margin-top: 40px;
+
+    .jumbotron {
+        background-size: cover;
+        background: linear-gradient(rgba(134, 134, 134, 0.5), rgba(181, 167, 167, 0.5)), url("../../assets/img/bgimg.png")
+    }
+
+    .grp-btn{
+        button{
+            width: 50%;
+        }
+    }
+}
+
+

@@ -1,0 +1,33 @@
+<div class="mt-4" [formGroup]="checkoutForm">
+    <div class="d-flex justify-content-between align-items-center">
+        <h4>Địa chỉ gửi hàng</h4>
+        <button (click)="saveUserAddress()"
+                [disabled]="!checkoutForm.get('addressForm').valid || !checkoutForm.get('addressForm').dirty"
+                class="btn btn-outline-success">
+            Lưu 
+        </button>
+    </div>
+    <div class="row" formGroupName="addressForm">
+        <div class="form-group col-6">
+            <input  formControlName="firstname" type="firstname" id="firstname" class="form-control" placeholder="Tên">
+        </div>
+        <div class="form-group col-6">
+            <input formControlName="lastname" type="lastname" id="lastname" class="form-control" placeholder="Họ">
+        </div>
+        <div class="form-group col-6">
+            <input formControlName="street" type="street" id="street" class="form-control" placeholder="Đường">
+        </div>
+        <div class="form-group col-6">
+            <input formControlName="ward" type="ward" id="ward" class="form-control" placeholder="Phường">
+        </div>
+        
+        <div class="form-group col-6">
+            <input formControlName="district" type="district" id="district" class="form-control" placeholder="Quận/Huyện">
+        </div>
+        
+        <div class="form-group col-6">
+            <input formControlName="cityProvince" type="cityProvince" id="cityProvince" class="form-control" placeholder="Tỉnh/Thành phố">
+        </div>
+        
+    </div>
+</div>

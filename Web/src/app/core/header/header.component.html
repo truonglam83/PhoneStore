@@ -1,0 +1,45 @@
+<div class="header d-flex flex-column flex-md-row align-items-center justify-content-between p-3 px-md-4 mb-3
+    border-bottom box-shadow ">
+  <a [routerLink]="['/']" [routerLinkActive]=""><img src="/assets/img/logo.png" alt=""
+      style="max-height:60px; margin-left:80px"></a>
+  <nav class="my-2 my-md-0 mr-md-3 text-uppercase" style="font-size:large;">
+    <a class="p-2 text-white font-weight-bold" [routerLink]="['/']" [routerLinkActive]="">Trang chủ</a>
+    <a class="p-2 text-white font-weight-bold" [routerLink]="['/san-pham']" [routerLinkActive]="">Sản phẩm</a>
+    <a class="p-2 text-white font-weight-bold" href="#">Liên hệ</a>
+  </nav>
+  <div class="d-flex align-items-center">
+    <a class="position-relative" routerLink="/gio-hang">
+      <i class="fa fa-shopping-cart fa-2x mr-5 text-light" style="font-size:27px" ></i>
+      <div *ngIf="(basket$ | async) " class="cart-no">{{(basket$ | async).items.length}}</div>
+    </a>
+    <ng-container *ngIf="(currentUser$ | async)=== null">
+      <a routerLink="/tai-khoan/login" class="btn btn-light mr-2">Login</a>
+      <a routerLink="/tai-khoan/register" class="btn btn-warning mr-3">Sign up</a>
+    </ng-container>
+
+    <ng-container *ngIf="(currentUser$ | async)">
+      <div class="btn dropdown ml-3 mr-5" dropdown>
+        <a class="dropdown-toggle" style="cursor:pointer;" dropdownToggle>
+          Chào <strong> {{(currentUser$ | async).displayName}}</strong>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right"  style="cursor: pointer;" *dropdownMenu>
+          <a routerLink="/gio-hang" class="dropdown-item d-flex align-items-center py-2">
+            <i  class="fa fa-shopping-cart mr-3"></i>Giỏ hàng
+          </a>
+          <a routerLink="/thanh-toan" class="dropdown-item d-flex align-items-center py-2">
+            <i  class="fa fa-history mr-3"></i>Lịch sử đơn hàng
+          </a>
+          <div class="dropdown-divider"></div>
+          <a (click)="logout()" class="dropdown-item d-flex align-items-center py-2">
+            <i class="fa fa-sign-out mr-3"></i>Đăng xuất
+          </a>
+        </div>
+      </div>
+      <!-- <a href="#" class="d-flex align-items-center" style="padding-right: 30px;color: white;">
+        <i class="fa fa-circle-user" style="font-size: 40px;"></i> &nbsp;{{(currentUser$ | async).displayName}}
+      </a> -->
+    </ng-container>
+
+  </div>
+
+</div>

@@ -1,0 +1,35 @@
+.container{
+    margin-top: 60px;
+    margin-bottom: 60px;
+    .price{
+        .lead{
+            span{
+                color:red;
+                font-size: 30px;
+                font-weight: bold;
+            }
+        }
+    }
+    .btn-grp{
+        width: 100%;
+        .button1{
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 5px;
+            width: 70%;
+            height: 60px;
+            background: linear-gradient(to right, #ff6600 34%, #ffcc66 109%);
+        }
+    }
+    .info{
+        h3{
+            color: black;
+            font-weight: bold;
+            font-size: 30px;
+        }
+        h4{
+            color: #3884e4;
+            font-weight: bold;
+        }
+    }
+}

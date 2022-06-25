@@ -1,0 +1,20 @@
+<div class="container">
+    <carousel>
+        <slide *ngFor="let img of listimg">
+            <img src="{{img.image}}" alt="">
+        </slide>
+
+    </carousel>
+    <br>
+
+    <div class="">
+        <h2>Top sản phẩm bán chạy</h2>
+        <div class="album py-5 container" style="border-radius:5px">
+            <div class="row">
+                <div class="col-md-4" *ngFor="let item of products" style="padding-top:10px ;">
+                    <app-product-item [product]="item"></app-product-item>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

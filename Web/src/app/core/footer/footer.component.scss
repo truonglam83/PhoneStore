@@ -1,0 +1,29 @@
+.grid {
+    width: 100%;
+    display: block;
+    padding: 0;
+    margin: 0 auto;
+    
+    .frow-item {
+      
+      .footer__text-color {
+        color: #3884e4;
+      }
+    
+      .footer__img {
+        height: 50px;
+        width: auto;
+      }
+    }
+}
+@media (max-width:767px){
+    .grid {
+      width: 90%;
+
+      .footer__text-mobile {
+        font-size: 0.75rem;
+      }
+    }
+  
+    
+  }

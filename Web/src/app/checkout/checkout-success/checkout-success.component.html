@@ -1,0 +1,11 @@
+<div class="container " style="text-align:center">
+    <div>
+        <i class="fas fa-check-circle fa-9x" style="color:green;"></i>
+    </div>
+    <h2>Cảm ơn bạn đã mua hàng</h2>
+    <p>Đơn hàng của bạn sẽ được duyệt và giao hàng sớm nhất</p>
+    <button *ngIf="order" routerLink="/gio-hang/{{order?.id}}" class="btn btn-outline-success">Xem đơn hàng </button>
+    <br>
+    <button *ngIf="!order" routerLink="/gio-hang" class="btn btn-outline-success">Xem đơn hàng </button>
+    <br>
+</div>

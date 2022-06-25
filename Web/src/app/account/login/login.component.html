@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center mt-5 login">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <form class="container" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <img class="mb-4" src="assets/img/logologin.png" alt="" width="100%" style="text-align: center;">
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+        <!-- <app-text-input formControlName="email" [label]="'Email Address' "></app-text-input>
+        <app-text-input formControlName="password" [label]="'Password'" [type]="'password'"></app-text-input>
+ -->
+
+        <label for="inputEmail">Email address</label>
+        <input formControlName="email" type="email" id="inputEmail" class="form-control" placeholder="Email address"
+          required="" autofocus="">
+        <span class="text-danger" *ngIf="loginForm.get('email').invalid 
+                          && loginForm.get('email').touched
+                          && loginForm.get('email').errors['required']">
+          Địa chỉ email là bắt buộc!
+        </span>
+        <span class="text-danger" *ngIf="loginForm.get('email').invalid 
+                          && loginForm.get('email').touched
+                          && loginForm.get('email').errors['pattern']">
+          Địa chỉ email không hợp lệ
+        </span>
+        <br>
+        <label for="inputPassword">Password</label>
+        <input formControlName="password" type="password" id="inputPassword" class="form-control" placeholder="Password"
+          required="">
+        <span class="text-danger" *ngIf="loginForm.get('password').invalid 
+                                    && loginForm.get('password').touched
+                                    && loginForm.get('password').errors['required']">
+          Mật khẩu là bắt buộc!
+        </span>
+
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button [disabled]="loginForm.invalid" class="btn btn-lg btn-primary btn-block" type="submit">Đăng nhập</button>
+        <span style="text-align: center">Bạn chưa có tài khoản? <a href="#" routerLink="/tai-khoan/register">Đăng kí
+            ngay</a></span>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- <p>Form status: {{loginForm.status}}</p>
+<p>Email status: {{loginForm.get('email').status}}</p>
+<p>Email touched: {{loginForm.get('email').status}}</p>
+<p>Form dirty: {{loginForm.get('email').status}}</p>
+<pre>{{loginForm.value | json}}</pre> -->

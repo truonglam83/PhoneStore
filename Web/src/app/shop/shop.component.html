@@ -1,0 +1,64 @@
+<div class="container">
+
+    <div class="row">
+        <section class="col-md-9">
+            <div class="album py-5 bg-light">
+                <div class="row">
+                    <div class="col-md-4" *ngFor="let item of products">
+                        <app-product-item [product]="item"></app-product-item>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <pagination [boundaryLinks]="true" [totalItems]="this.totalCount" (pageChanged)="onPageChanged($event)"
+                        [itemsPerPage]="shopParams.pageSize" previousText="&lsaquo;" nextText="&rsaquo;"
+                        firstText="&laquo;" lastText="&raquo;">
+                    </pagination>
+                </div>
+            </div>
+        </section>
+        <section class="col-md-3 grp-btn">
+            <div class="search-bar">
+                <input style="width:100%;height: 40px;border-radius: 4px;" type="text" #search
+                    placeholder="Tìm kiếm ngay nào" aria-describedby="helpId">
+                <br>
+                <button class="btn btn-outline-success my-2" (click)="onSearch()"><i class="fa fa-search"
+                        aria-hidden="true"></i>
+                </button>
+                <button class="btn btn-outline-warning my-2" (click)="onReset()"><i class="fa fa-trash"
+                        aria-hidden="true"></i></button>
+            </div>
+            <h5>Xếp theo</h5>
+            <select (change)="onSortSelected($event.target.value)" style="border-radius:5px; width:180px; height:40px">
+                <option *ngFor="let sort of sortOptions" [value]="sort.value">
+                    {{sort.name}}
+                    
+                </option>
+            </select>
+            <br>
+            <br>
+            <h5>Hãng</h5>
+            <ul class="list-group">
+                <li class="list-group-item " *ngFor="let brand of brands"
+                    [class.active]="brand.id === this.shopParams.brandId" [value]="brand.id"
+                    (click)="onBrandsSelected(brand.id)">
+                    {{brand.nameBrand}}
+                </li>
+
+            </ul>
+
+            <br>
+            <!-- <h5>Categories</h5>
+            <ul class="list-group">
+                <li class="list-group-item "
+                    *ngFor="let type of types"
+                    [class.active]="type.id === this.shopParams.typeId"
+                    [value]="type.id"
+                    (click)="onTypesSelected(type.id)"
+                >
+                {{type.nameCate}}</li>
+              </ul> -->
+
+        </section>
+    </div>
+</div>
+<hr>
